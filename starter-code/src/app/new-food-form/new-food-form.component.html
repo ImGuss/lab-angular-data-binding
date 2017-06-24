@@ -1,0 +1,15 @@
+<form (ngSubmit)="submitForm(myForm)" #myForm="ngForm">
+  <div>
+    <label for="new-food-name">Name</label>
+    <input id="new-food-name" [(ngModel)]="newFoodName" type="text" name="newFoodName">
+  </div>
+  <div>
+    <label for="new-food-calories">Calories</label>
+    <input id="new-food-calories" [(ngModel)]="newFoodCalories" type="text" name="newFoodCalories">
+  </div>
+  <div>
+    <label for="new-food-image">Image</label>
+    <input id="new-food-image" [(ngModel)]="newFoodImage" type="text" name="newFoodImage">
+  </div>
+  <button type="submit">Add Food</button>
+</form>

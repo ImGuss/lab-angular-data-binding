@@ -8,17 +8,7 @@
 <br>
 
 <div *ngIf="isEditing">
-  <form (ngSubmit)="newFood(foodForm)" #foodForm="ngForm">
-    <label for="new-food-name">Name</label>
-    <input id="new-food-name" type="text" name="name" [(ngModel)]="newFoodName">
-    <br>
-    <label for="new-food-calories">Calories</label>
-    <input id="new-food-calories" type="text" name="calories" [(ngModel)]="newFoodCalories">
-    <label for="new-food-image">Image</label>
-    <input id="new-food-image" type="text" name="image" [(ngModel)]="newFoodImage">
-    <br><br>
-    <button>Add Food</button>
-  </form>
+  <app-new-food-form (onAddFood)="addFood($event)">New Food Form</app-new-food-form>
 </div>
 
 

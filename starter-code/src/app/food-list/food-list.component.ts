@@ -39,13 +39,9 @@ export class FoodListComponent implements OnInit {
     this.isEditing = !this.isEditing;
   }
 
-  newFood(foodForm) {
-    const newFood = {
-      name: this.newFoodName,
-      calories: this.newFoodCalories,
-      image: this.newFoodImage,
-      quantity: 0
-    }
+  addFood(newFood) {
+
+    console.log(newFood);
 
     this.foods.unshift(newFood);
 

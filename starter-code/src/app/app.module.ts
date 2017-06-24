@@ -8,14 +8,14 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { FoodListComponent } from './food-list/food-list.component';
 import { FoodSearchPipe } from './food-search.pipe';
-import { MyFoodsComponent } from './my-foods/my-foods.component';
+import { NewFoodFormComponent } from './new-food-form/new-food-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FoodListComponent,
     FoodSearchPipe,
-    MyFoodsComponent,
+    NewFoodFormComponent,
   ],
   imports: [
     BrowserModule,
