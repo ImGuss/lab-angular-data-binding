@@ -1,3 +1,47 @@
-<p>
-  food-list works!
-</p>
+<label for="food-search">Search Foods</label>
+<input id="food-search" type="text" [(ngModel)]="pattern">
+<br>
+<br>
+
+<button (click)="enableUserToAddFood()" class="new-food-button">Add New Food</button>
+<br>
+<br>
+
+<div *ngIf="isEditing">
+  <form (ngSubmit)="newFood(foodForm)" #foodForm="ngForm">
+    <label for="new-food-name">Name</label>
+    <input id="new-food-name" type="text" name="name" [(ngModel)]="newFoodName">
+    <br>
+    <label for="new-food-calories">Calories</label>
+    <input id="new-food-calories" type="text" name="calories" [(ngModel)]="newFoodCalories">
+    <label for="new-food-image">Image</label>
+    <input id="new-food-image" type="text" name="image" [(ngModel)]="newFoodImage">
+    <br><br>
+    <button>Add Food</button>
+  </form>
+</div>
+
+
+<ul>
+  <!-- foods = any[], foodSearch = pipe, 'name' = field: string, pattern = value: string -->
+  <li class="single-food" *ngFor="let food of foods | foodSearch: 'name':pattern;">
+    <img [src]="food.image">
+    <h3 class="food-name">
+      {{ food.name }}
+      <small class=""> Calories: {{ food.calories }} </small>
+    </h3>
+    <button (click)="addToMyList(food, quantity)">+</button>
+    <input type="text" #quantity value="1">
+  </li>
+</ul>
+
+<div class="my-food-list">
+  <h2>Today's Foods <small>{{ totalCalories }} cal</small></h2>
+  <ul>
+    <li *ngFor="let food of myList">
+      <span>{{ food.name }}</span>
+      <span>{{ food.calories }}</span>
+      <span *ngIf="food.quantity > 1">x{{ food.quantity }}</span>
+    </li>
+  </ul>
+</div>
